@@ -25,10 +25,17 @@ function reqJson() {
 const res = fetch('./jsonfiles/hello.json');
 console.log(res);
 
+/*
+const data = res.json();
+const msg = data.message;
+console.log(msg);
+*/
+
 const dataObj = res.then((res) => {
   return res.json();
 });
 console.log(dataObj);
+
 const objMessage = dataObj.then((dataObj) => {
   return dataObj.message;
 }) 
