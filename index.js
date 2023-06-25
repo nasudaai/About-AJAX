@@ -1,72 +1,31 @@
-//import { app, reqJson, rm } from './src/App.js';
-//import { hanakoJson, hanakoObj } from './src/json.js';
-//import check
+import { app, reqJson, rm } from './src/App.js';
 
+const reqBtn = document.getElementById('reqBtn');
+reqBtn.onclick = reqJson;
 
-function reqJson() {
-  const res = fetch('./jsonfiles/hello.json');
-  console.log(res);
+const rmBtn = document.getElementById('rmBtn');
+rmBtn.onclick = rm;
+
+// App.jsにfunctionとして定義している
+const res = fetch('./jsonfiles/hello.json');
+  console.log(res);  //PromiseResult: Response
 
   const dataObj = res.then((res) => {
     return res.json();
   });
-  console.log(dataObj);
-  const objMessage = dataObj.then((dataObjstyle="display: block;") => {
-    return dataObj.message;
-  }) 
-  console.log(objMessage);
+  console.log(dataObj); //PromiseResult: Object
 
-  const messageElm = document.getElementById('message');
+  //consoleに
+  const objMessage = dataObj.then((obj) => {
+    return obj.message;
+  }) 
+  console.log(objMessage); //PromiseResult: "Hello ..."
+  
+/*
+  //htmlに
   dataObj.then((obj) => {
+    const messageElm = document.getElementById('message');
     messageElm.innerHTML = obj.message;
   });  
-}
-
-const res = fetch('./jsonfiles/hello.json');
-console.log(res);
-
-/*
-const data = res.json();
-const msg = data.message;
-console.log(msg);
 */
-
-const dataObj = res.then((res) => {
-  return res.json();
-});
-console.log(dataObj);
-
-const objMessage = dataObj.then((dataObj) => {
-  return dataObj.message;
-}) 
-console.log(objMessage);
-
-const messageElm = document.getElementById('message');
-dataObj.then((obj) => {
-  messageElm.innerHTML = obj.message;
-});
-
-function rm() {
-  messageElm.innerHTML = '';
-}
-
-/*
-const dataJson = dataObj.then((Obj) => {
-  return JSON.stringify(Obj);
-});
-console.log(dataJson);
-*/
-
-
-/*
-const resHanako = fetch('./jsonfiles/hanako.json');
-console.log(resHanako);
-
-const dataHanako = resHanako.then((resHanako) => {
-  return resHanako.json();
-});
-console.log(dataHanako);
-*/
-
-//log(hanakoObj);
-//log(hanakoJson);
+//

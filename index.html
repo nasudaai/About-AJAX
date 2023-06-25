@@ -1,13 +1,15 @@
 <!doctype html>
-<html>
-    <head>    
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <title>AJAX</title>
     </head>
     <body>
-        <h1>about AJAX</h1>
+        <h1 id="title">about AJAX</h1>
             <div style="height: 50px;   border-style: solid; border-width: 1px; padding: 10px; margin-bottom: 20px;">
                 <p id="message"></p>
-            </div><button onclick="reqJson();">取得</button>
-        <button  onclick="rm();">消去</button>
-        <script src="index.js"></script>
+            </div><button id="reqBtn">取得</button>
+        <button  id="rmBtn">削除</button>
+        <script type="module" src="index.js"></script>
     </body>
 </html>
